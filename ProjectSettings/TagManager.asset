@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Hit
   - Throw
+  - EnemyKick
   layers:
   - Default
   - TransparentFX

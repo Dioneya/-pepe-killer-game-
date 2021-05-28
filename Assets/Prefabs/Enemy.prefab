@@ -556,9 +556,10 @@ GameObject:
   - component: {fileID: 495786718469658352}
   - component: {fileID: 495786718469658367}
   - component: {fileID: 495786718469658353}
+  - component: {fileID: 2499003346137418941}
   m_Layer: 0
   m_Name: leg_stretch.r
-  m_TagString: Untagged
+  m_TagString: EnemyKick
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -654,6 +655,19 @@ CharacterJoint:
   m_EnablePreprocessing: 0
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!65 &2499003346137418941
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3313908316458508546}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.32606587, y: 0.67097896, z: 0.23655288}
+  m_Center: {x: 0.07587576, y: 0.310292, z: -0.008576512}
 --- !u!1 &3447468584353985711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,7 +1952,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 1
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1976,6 +1990,7 @@ MonoBehaviour:
   - {fileID: 495786719001202092}
   - {fileID: 495786718469658352}
   - {fileID: 495786719120744309}
+  hitCollider: {fileID: 2499003346137418941}
   distance: 0
   maxDist: 4
   minDist: 3

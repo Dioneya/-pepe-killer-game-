@@ -21,7 +21,7 @@ public class Glass : MonoBehaviour
             {
                 rig.isKinematic = false;
                 rig.AddForce(0, 0, -200f);
-                gameObject.layer = 9;
+                rig.gameObject.layer = 9;
             }
 
 
@@ -37,7 +37,7 @@ public class Glass : MonoBehaviour
             {
                 rig.isKinematic = false;
                 rig.AddForce(0, 0, -200f);
-                gameObject.layer = 9;
+                rig.gameObject.layer = 9;
             }
             collider.isTrigger = false;
             gameObject.tag = "Throw";

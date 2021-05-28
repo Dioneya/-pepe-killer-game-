@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+
+    Rigidbody rigidbody;
+    private void Awake()
+    {
+        rigidbody = GetComponent<Rigidbody>();
+    }
+    public void Throw() 
+    {
+        rigidbody.AddForce(0, 0, 1100f);
+        gameObject.tag = "EnemyKick";
+    }
+
     void Start()
     {
         StartCoroutine(SelfDestroy());
@@ -11,6 +23,7 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
+
         if (other.gameObject.tag != "Hit")
             return;
 
@@ -24,6 +37,5 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(5f);
         Destroy(gameObject);
     }
-
 
 }

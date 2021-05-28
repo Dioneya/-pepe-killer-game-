@@ -9,7 +9,13 @@ public class Enemy : MonoBehaviour
     private GameObject target;
     [SerializeField]
     private Rigidbody[] rigids;
+
+    [SerializeField]
+    private BoxCollider hitCollider; 
+
     private Animator animator;
+    
+
     private NavMeshAgent agent;
     private bool isAttack = false;
     private bool canMove = true;
@@ -124,6 +130,17 @@ public class Enemy : MonoBehaviour
         isAgro = true;
         agent.enabled = true;
         agent.destination = target.transform.position;
+        animator.Play("Walk");
+    }
+
+    public void Kick() 
+    {
+        hitCollider.enabled = true;
+    }
+
+    public void StopKick() 
+    {
+        hitCollider.enabled = false;
     }
 
     void Update()

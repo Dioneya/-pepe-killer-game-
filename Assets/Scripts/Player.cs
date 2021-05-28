@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -26,15 +25,6 @@ public class Player : MonoBehaviour
         Debug.Log("Коллайдер заработал");
         StartCoroutine(HideCollider());
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-
-        if (other.gameObject.tag != "EnemyKick")
-            return;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
 
     IEnumerator HideCollider() 
     {

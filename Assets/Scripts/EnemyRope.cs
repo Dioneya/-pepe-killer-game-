@@ -37,13 +37,14 @@ public class EnemyRope : MonoBehaviour
         if (other.gameObject.tag == "Hit")
         {
             SwitchKinematicMode(false);
-
+            RemoveCollision();
             Punch();
         }
 
         if (other.gameObject.tag == "Throw")
         {
             SwitchKinematicMode(false);
+            RemoveCollision();
             Hit();
         }
     }
@@ -53,8 +54,19 @@ public class EnemyRope : MonoBehaviour
         foreach (Rigidbody rig in rigids)
         {
             rig.AddForce(0, 100f, -500f);
+
         }
         gameObject.tag = "Throw";
+    }
+
+    private void RemoveCollision()
+    {
+        gameObject.layer = 9;
+        foreach (Transform child in GetComponentsInChildren<Transform>())
+        {
+            child.gameObject.layer = 9;
+        }
+        this.enabled = false;
     }
 
     private void Hit()

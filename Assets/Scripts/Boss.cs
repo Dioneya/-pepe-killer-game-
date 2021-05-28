@@ -101,7 +101,7 @@ public class Boss : MonoBehaviour
     public void Strike() 
     {
         GameObject itemStr = Instantiate(item,itemPos.transform.position,new Quaternion(0,0,0,0));
-        itemStr.GetComponent<Rigidbody>().AddForce(0,0,1000f);
+        itemStr.GetComponent<Bullet>().Throw();
     }
 
     public void SetAgressive() 
