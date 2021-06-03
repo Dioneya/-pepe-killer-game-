@@ -7,6 +7,7 @@ public class Glass : MonoBehaviour
     [SerializeField]
     private Rigidbody[] rigids;
     private Collider collider;
+    public bool isForRope = false;
 
     void Awake()
     {
@@ -14,35 +15,21 @@ public class Glass : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Hit")
-        {
-            gameObject.layer = 10;
-            foreach (Rigidbody rig in rigids) 
-            {
-                rig.isKinematic = false;
-                rig.AddForce(0, 0, -200f);
-                rig.gameObject.layer = 9;
-            }
 
-
-            collider.isTrigger = false;
-            gameObject.tag = "Throw";
-            //StartCoroutine(Punched());
-        }
-
-        if (other.gameObject.tag == "Throw")
+        if (other.gameObject.tag == "Throw" || other.gameObject.tag == "Hit" || (isForRope && other.gameObject.tag == "Player"))
         {
             gameObject.layer = 10;
             foreach (Rigidbody rig in rigids)
             {
                 rig.isKinematic = false;
-                rig.AddForce(0, 0, -200f);
-                rig.gameObject.layer = 9;
+                rig.AddForce(0, 0, Random.Range(-50f,-200f));
+                rig.gameObject.layer = 10;
             }
             collider.isTrigger = false;
-            gameObject.tag = "Throw";
+            //gameObject.tag = "Throw";
 
         }
+
 
     }
 

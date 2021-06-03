@@ -21,15 +21,15 @@ public class Door : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag != "Hit" && other.gameObject.tag != "Throw")
+        if (other.gameObject.tag != "Hit")
             return;
 
         rigidbody.isKinematic = false;
         collider.isTrigger = false;
-        gameObject.tag = "Throw";
+        //gameObject.tag = "Throw";
 
         if (other.gameObject.tag == "Hit") { }
-            rigidbody.AddForce(0, 30f, -200f);
+            rigidbody.AddForce(0, 30f, -500f);
 
         gameObject.layer = 9;
         OnIsBroken?.Invoke();

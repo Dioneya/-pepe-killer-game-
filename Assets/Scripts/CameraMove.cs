@@ -14,7 +14,7 @@ public class CameraMove : MonoBehaviour
     void FixedUpdate()
     {
         Move();
-        //MobileMove();
+        MobileMove();
     }
 
     void Move()

@@ -55,18 +55,24 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
+        if (other.gameObject.tag != "Hit" && other.gameObject.tag != "Throw")
+            return;
+
+        SwitchKinematicMode(false);
+        StartCoroutine(Timer());
+
         if (other.gameObject.tag == "Hit") 
         {
-            SwitchKinematicMode(false);
-            
             Punch();  
         }
-
         if (other.gameObject.tag == "Throw")
         {
-            SwitchKinematicMode(false);
             Hit();
         }
+
+
+
+        
     }
 
 
@@ -136,11 +142,18 @@ public class Enemy : MonoBehaviour
     public void Kick() 
     {
         hitCollider.enabled = true;
+        
     }
 
     public void StopKick() 
     {
         hitCollider.enabled = false;
+    }
+
+    private IEnumerator Timer() 
+    {
+        yield return new WaitForSeconds(2f);
+        gameObject.tag = "Untagged";
     }
 
     void Update()

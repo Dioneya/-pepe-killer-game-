@@ -53,8 +53,8 @@ public class EnemyRope : MonoBehaviour
         animator.enabled = false;
         foreach (Rigidbody rig in rigids)
         {
-            rig.AddForce(0, 100f, -500f);
-
+            rig.AddForce(0, -100f, -1500f);
+            rig.gameObject.tag = "Throw";
         }
         gameObject.tag = "Throw";
     }
@@ -74,7 +74,7 @@ public class EnemyRope : MonoBehaviour
         animator.enabled = false;
         foreach (Rigidbody rig in rigids)
         {
-            rig.AddForce(0, 0f, -50f);
+            rig.AddForce(0, 0f, 0f);
         }
     }
     // Update is called once per frame
